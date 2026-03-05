@@ -56,21 +56,16 @@ export default function BreadModel() {
   return (
     <group>
       {/* Main Bread Shape (Abstracted as a distorted sphere for now) */}
-    <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-  <mesh ref={meshRef} scale={[2.2, 0.8, 1.6]}>
-    <cylinderGeometry args={[1, 1, 0.6, 64]} />
-    <MeshDistortMaterial
-     color="#E3C39D"
-      speed={1.5}
-      distort={0.15}
-      roughness={0.9}
-      metalness={0.05}
-      transparent
+   <Float speed={2} rotationIntensity={0.3} floatIntensity={0.4}>
+  <mesh ref={meshRef} scale={[2.5, 0.4, 2]}>
+    <sphereGeometry args={[1, 64, 64]} />
+    <meshStandardMaterial
+      color="#E8C39E"
+      roughness={0.95}
+      metalness={0.02}
     />
   </mesh>
 </Float>
-        </Sphere>
-      </Float>
 
       {/* Flour Particles */}
       <Points ref={particlesRef} positions={positions} stride={3}>
@@ -85,9 +80,9 @@ export default function BreadModel() {
       </Points>
 
       {/* Ambient Light */}
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={1} />
-      <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
+     <ambientLight intensity={0.8} />
+<directionalLight position={[5, 10, 5]} intensity={1.2} />
+<directionalLight position={[-5, 5, -5]} intensity={0.6} />
     </group>
   );
 }
