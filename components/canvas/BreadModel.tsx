@@ -5,6 +5,7 @@ import { useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Sphere, Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 import { useScroll } from 'framer-motion';
+import { useGLTF } from '@react-three/drei';
 
 export default function BreadModel() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -56,16 +57,17 @@ export default function BreadModel() {
   return (
     <group>
       {/* Main Bread Shape (Abstracted as a distorted sphere for now) */}
-   <Float speed={2} rotationIntensity={0.3} floatIntensity={0.4}>
-  <mesh ref={meshRef} scale={[2.5, 0.4, 2]}>
-    <sphereGeometry args={[1, 64, 64]} />
-    <meshStandardMaterial
-      color="#E8C39E"
-      roughness={0.95}
-      metalness={0.02}
-    />
-  </mesh>
+   const { scene } = useGLTF('/models/bread.glb')
+
+<Float speed={2} rotationIntensity={0.3} floatIntensity={0.4}>
+  <primitive
+    ref={meshRef}
+    object={scene}
+    scale={2}
+    position={[0,0,0]}
+  />
 </Float>
+
 
       {/* Flour Particles */}
       <Points ref={particlesRef} positions={positions} stride={3}>
