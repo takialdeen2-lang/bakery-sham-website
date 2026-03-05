@@ -12,7 +12,7 @@ export default function BreadModel() {
   const { scrollYProgress } = useScroll();
 
   // Create flour particles
-  const particleCount = 2000;
+  const particleCount = 1200;
   const positions = useMemo(() => {
     const pos = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount; i++) {
@@ -28,7 +28,7 @@ export default function BreadModel() {
     
     if (meshRef.current) {
       // Rotate based on scroll
-      meshRef.current.rotation.y = scroll * Math.PI * 4;
+      meshRef.current.rotation.y = scroll * Math.PI * 2;
       meshRef.current.rotation.x = scroll * Math.PI;
       
       // Move down and scale down as we scroll
@@ -56,17 +56,19 @@ export default function BreadModel() {
   return (
     <group>
       {/* Main Bread Shape (Abstracted as a distorted sphere for now) */}
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-        <Sphere ref={meshRef} args={[1.5, 64, 64]} scale={1}>
-          <MeshDistortMaterial
-            color="#D2B48C"
-            speed={2}
-            distort={0.3}
-            radius={1}
-            roughness={0.8}
-            metalness={0.1}
-            transparent
-          />
+    <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
+  <mesh ref={meshRef} scale={[2.2, 0.8, 1.6]}>
+    <cylinderGeometry args={[1, 1, 0.6, 64]} />
+    <MeshDistortMaterial
+     color="#E3C39D"
+      speed={1.5}
+      distort={0.15}
+      roughness={0.9}
+      metalness={0.05}
+      transparent
+    />
+  </mesh>
+</Float>
         </Sphere>
       </Float>
 
