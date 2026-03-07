@@ -100,14 +100,14 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section with 3D Bread and Overlay */}
-<section id="hero" className="relative h-[200vh] flex items-start justify-center overflow-hidden pt-40">
+    <section id="hero" className="relative h-[200vh] flex items-start justify-center overflow-hidden pt-40">
   <div className="absolute inset-0 z-0">
-    {/* 3D Scene */}
     <Scene />
-    
-    {/* Semi-transparent overlay */}
-    <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+
+    {/* Radial Spotlight */}
+    <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+      <div className="w-[60%] h-[60%] bg-gradient-radial from-black/40 via-black/10 to-transparent rounded-full pointer-events-none" />
+    </div>
   </div>
 
   {/* Headline and content */}
