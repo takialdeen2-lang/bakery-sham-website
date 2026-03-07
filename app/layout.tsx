@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Amiri } from "next/font/google";
 import "./globals.css";
+import { IBM_Plex_Sans_Arabic } from "next/font/google";
 
-const amiri = Amiri({
+const arabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
-  weight: ["400", "700"],
-  variable: "--font-amiri",
+  weight: ["300","400","500","600","700"],
+  variable: "--font-arabic",
 });
 
 const geistSans = localFont({
@@ -33,10 +33,10 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${amiri.variable} antialiased bg-bakery-warm text-bakery-brown`}
-      >
-        {children}
-      </body>
+  className={`${geistSans.variable} ${geistMono.variable} ${arabic.variable} antialiased bg-bakery-warm text-bakery-brown`}
+        > 
+   {children}
+    </body> 
     </html>
   );
 }
