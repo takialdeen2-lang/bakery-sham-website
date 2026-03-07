@@ -18,7 +18,7 @@ export default function BreadModel() {
     const scroll = scrollYProgress.get()
 
     // rotate constantly
-    breadRef.current.rotation.y += 0.001
+    breadRef.current.rotation.y += 0.005
 
     // scale from 1.5 → 2.5
     const scale = 1.5 + scroll * 1
