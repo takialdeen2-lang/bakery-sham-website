@@ -12,28 +12,31 @@ export default function BreadModel() {
 
   const { scrollYProgress } = useScroll()
 
-  useFrame(() => {
-    if (!breadRef.current) return
+ useFrame(() => {
+  if (!breadRef.current) return
 
-    const scroll = scrollYProgress.get()
+  const scroll = scrollYProgress.get()
 
-    // rotate constantly
-    breadRef.current.rotation.y += 0.005
+  // constant spin
+  breadRef.current.rotation.y += 0.01
 
-    // scale from 1.5 → 2.5
-    const scale = 1.5 + scroll * 1
-    breadRef.current.scale.set(scale, scale, scale)
+  // tilt upward
+ breadRef.current.rotation.x += (scroll * 0.6 - breadRef.current.rotation.x) * 0.08
 
-    // fade out
-    const opacity = 1 - scroll * 1.5
+  // scale bigger
+  const scale = 1.5 + scroll * 1
+  breadRef.current.scale.set(scale, scale, scale)
 
-    breadRef.current.traverse((child: any) => {
-      if (child.isMesh) {
-        child.material.transparent = true
-        child.material.opacity = Math.max(opacity, 0)
-      }
-    })
+  // fade out
+  const opacity = 1 - scroll * 1.2
+
+  breadRef.current.traverse((child: any) => {
+    if (child.isMesh) {
+      child.material.transparent = true
+      child.material.opacity = Math.max(opacity, 0)
+    }
   })
+})
 
   return (
     <primitive
