@@ -100,43 +100,51 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="hero" className="relative h-[200vh] flex items-start justify-center overflow-hidden pt-40">
-        <motion.div 
-          style={{ opacity, scale }}
-          className="sticky top-40 z-10 text-center px-6 max-w-4xl"
-        >
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="text-6xl md:text-9xl font-bold font-arabic mb-8 text-bakery-brown tracking-tight"
-          >
-            طعم الشام الأصيل
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-            className="text-xl md:text-3xl mb-12 text-bakery-brown/80 leading-relaxed font-arabic"
-          >
-            نقدم لكم أشهى المخبوزات السورية التقليدية، محضرة يومياً بأجود المكونات وبوصفات توارثتها الأجيال.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <button className="bg-bakery-brown text-bakery-cream px-12 py-5 rounded-full text-2xl font-arabic hover:bg-bakery-olive transition-all transform hover:scale-105 shadow-2xl hover:shadow-bakery-brown/20">
-              اطلب الآن
-            </button>
-          </motion.div>
-        </motion.div>
-      </section>
+      {/* Hero Section with 3D Bread and Overlay */}
+<section id="hero" className="relative h-[200vh] flex items-start justify-center overflow-hidden pt-40">
+  <div className="absolute inset-0 z-0">
+    {/* 3D Scene */}
+    <Scene />
+    
+    {/* Semi-transparent overlay */}
+    <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+  </div>
 
+  {/* Headline and content */}
+  <motion.div 
+    style={{ opacity, scale }}
+    className="sticky top-40 z-10 text-center px-6 max-w-4xl"
+  >
+    <motion.h1 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      className="text-6xl md:text-9xl font-bold font-arabic mb-8 text-white tracking-tight"
+    >
+      طعم الشام الأصيل
+    </motion.h1>
+    <motion.p 
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+      className="text-xl md:text-3xl mb-12 text-white/90 leading-relaxed font-arabic"
+    >
+      نقدم لكم أشهى المخبوزات السورية التقليدية، محضرة يومياً بأجود المكونات وبوصفات توارثتها الأجيال.
+    </motion.p>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.4 }}
+    >
+      <button className="bg-bakery-brown text-bakery-cream px-12 py-5 rounded-full text-2xl font-arabic hover:bg-bakery-olive transition-all transform hover:scale-105 shadow-2xl hover:shadow-bakery-brown/20">
+        اطلب الآن
+      </button>
+    </motion.div>
+  </motion.div>
+</section>
       {/* Products Section */}
       <section id="products" className="py-32 px-6 bg-white relative z-20">
         <div className="max-w-7xl mx-auto">
