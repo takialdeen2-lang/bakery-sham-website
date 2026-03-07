@@ -18,14 +18,14 @@ export default function BreadModel() {
     const scroll = scrollYProgress.get()
 
     // rotate constantly
-    breadRef.current.rotation.y += 0.01
+    breadRef.current.rotation.y += 0.001
 
     // scale from 1.5 → 2.5
     const scale = 1.5 + scroll * 1
     breadRef.current.scale.set(scale, scale, scale)
 
     // fade out
-    const opacity = 1 - scroll * 1.2
+    const opacity = 1 - scroll * 1.5
 
     breadRef.current.traverse((child: any) => {
       if (child.isMesh) {
