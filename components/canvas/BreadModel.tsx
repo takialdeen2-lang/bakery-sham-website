@@ -26,16 +26,6 @@ export default function BreadModel() {
   // scale bigger
   const scale = 1.5 + scroll * 1
   breadRef.current.scale.set(scale, scale, scale)
-
-  // fade out
-  const opacity = 1 - scroll * 1.5
-
-  breadRef.current.traverse((child: any) => {
-    if (child.isMesh) {
-      child.material.transparent = true
-      child.material.opacity = Math.max(opacity, 0)
-    }
-  })
 })
 
   return (
