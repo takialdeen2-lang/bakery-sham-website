@@ -100,13 +100,15 @@ export default function Home() {
         </div>
       </nav>
 
-    <section id="hero" className="relative h-[200vh] flex items-start justify-center overflow-hidden pt-40">
+ {/* Hero Section with 3D Bread and Radial Spotlight */}
+<section id="hero" className="relative h-[200vh] flex items-start justify-center overflow-hidden pt-40">
+  {/* 3D Scene + Radial Spotlight */}
   <div className="absolute inset-0 z-0">
     <Scene />
 
     {/* Radial Spotlight */}
     <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-      <div className="w-[60%] h-[60%] bg-gradient-radial from-black/40 via-black/10 to-transparent rounded-full pointer-events-none" />
+      <div className="w-[60%] h-[60%] bg-gradient-radial from-bakery-cream/40 via-bakery-cream/10 to-transparent rounded-full pointer-events-none blur-3xl" />
     </div>
   </div>
 
@@ -120,19 +122,21 @@ export default function Home() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1, ease: "easeOut" }}
-      className="text-6xl md:text-9xl font-bold font-arabic mb-8 text-white tracking-tight"
+      className="text-6xl md:text-9xl font-bold font-arabic mb-8 text-bakery-brown tracking-tight"
     >
       طعم الشام الأصيل
     </motion.h1>
+
     <motion.p 
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-      className="text-xl md:text-3xl mb-12 text-white/90 leading-relaxed font-arabic"
+      className="text-xl md:text-3xl mb-12 text-bakery-brown/80 leading-relaxed font-arabic"
     >
       نقدم لكم أشهى المخبوزات السورية التقليدية، محضرة يومياً بأجود المكونات وبوصفات توارثتها الأجيال.
     </motion.p>
+
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
