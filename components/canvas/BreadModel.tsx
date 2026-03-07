@@ -18,17 +18,17 @@ export default function BreadModel() {
   const scroll = scrollYProgress.get()
 
   // constant spin
-  breadRef.current.rotation.y += 0.01
+  breadRef.current.rotation.y += 0.005
 
   // tilt upward
- breadRef.current.rotation.x += (scroll * 0.6 - breadRef.current.rotation.x) * 0.08
+ breadRef.current.rotation.x += (scroll * 1.2 - breadRef.current.rotation.x) * 0.08
 
   // scale bigger
   const scale = 1.5 + scroll * 1
   breadRef.current.scale.set(scale, scale, scale)
 
   // fade out
-  const opacity = 1 - scroll * 1.2
+  const opacity = 1 - scroll * 1.5
 
   breadRef.current.traverse((child: any) => {
     if (child.isMesh) {
